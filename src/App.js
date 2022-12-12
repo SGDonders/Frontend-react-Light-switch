@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
+    const [ light, toggleLight] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <main className={light === true ? 'on' : 'off'}>
+        <section>
+          <div className="dot"></div>
+          <button type="button"
+                  onClick={() => toggleLight(!light)}>
+              {light
+                  ? <p>Turn off</p>
+                  : <p>Turn on</p>}
+              </button>
+        </section>
+      </main>
   );
 }
 
